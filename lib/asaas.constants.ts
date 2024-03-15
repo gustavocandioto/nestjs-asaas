@@ -1,0 +1,3 @@
+export const ASAAS_MODULE_OPTIONS = 'ASAAS_MODULE_OPTIONS';
+export const ASAAS_TOKEN = 'ASAAS_TOKEN';
+export const ASAAS_MODULE = 'ASAAS_MODULE';

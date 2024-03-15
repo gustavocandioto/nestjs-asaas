@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-asaas-module",
+  "name": "@candioto/nestjs-asaas-module",
   "version": "0.1.0",
   "description": "Unofficial Asaas Payment Gateway NestJS module",
   "main": "dist/index.js",
@@ -10,11 +10,16 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
+    "publish:npm": "npm publish --access public",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:e2e": "echo 'No e2e tests implemented yet.'",
     "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavocandioto/nestjs-asaas-module.git"
   },
   "keywords": [
     "asaas",

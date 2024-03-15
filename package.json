@@ -1,5 +1,5 @@
 {
-  "name": "@candioto/nestjs-asaas-module",
+  "name": "@candioto/nestjs-asaas",
   "version": "0.1.0",
   "description": "Unofficial Asaas Payment Gateway NestJS module",
   "main": "dist/index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gustavocandioto/nestjs-asaas-module.git"
+    "url": "git+https://github.com/gustavocandioto/nestjs-asaas.git"
   },
   "keywords": [
     "asaas",

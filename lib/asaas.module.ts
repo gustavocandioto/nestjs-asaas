@@ -79,7 +79,7 @@ export class AsaasModule {
     return {
       provide: ASAAS_MODULE_OPTIONS,
       useFactory: async (optionsFactory: AsaasConfigOptionsFactory) =>
-        await optionsFactory.createLuluOptions(),
+        await optionsFactory.createAsaasOptions(),
       inject,
     };
   }

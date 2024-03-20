@@ -73,7 +73,7 @@ let AsaasModule = AsaasModule_1 = class AsaasModule {
         ];
         return {
             provide: asaas_constants_1.ASAAS_MODULE_OPTIONS,
-            useFactory: async (optionsFactory) => await optionsFactory.createLuluOptions(),
+            useFactory: async (optionsFactory) => await optionsFactory.createAsaasOptions(),
             inject,
         };
     }

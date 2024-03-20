@@ -4,7 +4,7 @@ export type AsaasModuleOptions = {
     sandbox: boolean;
 };
 export interface AsaasConfigOptionsFactory {
-    createLuluOptions(): Promise<AsaasModuleOptions> | AsaasModuleOptions;
+    createAsaasOptions(): Promise<AsaasModuleOptions> | AsaasModuleOptions;
 }
 export interface AsaasModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
     inject?: any[];

@@ -9,6 +9,6 @@ export interface AsaasConfigOptionsFactory {
 export interface AsaasModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
     inject?: any[];
     useClass?: Type<AsaasConfigOptionsFactory>;
-    useExisting?: Type<AsaasConfigOptionsFactory>;
+    provide?: any;
     useFactory?: (...args: any[]) => Promise<AsaasModuleOptions> | AsaasModuleOptions;
 }

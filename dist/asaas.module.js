@@ -48,7 +48,7 @@ let AsaasModule = AsaasModule_1 = class AsaasModule {
         };
     }
     static createAsyncProviders(options) {
-        if (options.useExisting || options.useFactory) {
+        if (options.useFactory) {
             return [this.createAsyncOptionsProvider(options)];
         }
         const useClass = options.useClass;
@@ -69,7 +69,7 @@ let AsaasModule = AsaasModule_1 = class AsaasModule {
             };
         }
         const inject = [
-            (options.useClass || options.useExisting),
+            options.useClass,
         ];
         return {
             provide: asaas_constants_1.ASAAS_MODULE_OPTIONS,

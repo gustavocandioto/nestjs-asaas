@@ -4,14 +4,26 @@ const asaas_module_1 = require("./asaas.module");
 const asaas_service_1 = require("./asaas.service");
 const testing_1 = require("@nestjs/testing");
 const asaas_constants_1 = require("./asaas.constants");
+class MockAsaasConfigOptionsFactory {
+    async createAsaasOptions() {
+        return {
+            apiKey: 'mock-api-key',
+            sandbox: true,
+        };
+    }
+}
 describe('AsaasModule', () => {
+    let module;
     let config = {
         apiKey: '123',
         sandbox: true
     };
+    afterEach(async () => {
+        await module.close();
+    });
     describe('forRoot', () => {
         it('should return a module', async () => {
-            const module = await testing_1.Test.createTestingModule({
+            module = await testing_1.Test.createTestingModule({
                 imports: [
                     asaas_module_1.AsaasModule.forRoot(config)
                 ]
@@ -26,8 +38,8 @@ describe('AsaasModule', () => {
         });
     });
     describe('forRootAsync', () => {
-        it('should return a module', async () => {
-            const module = await testing_1.Test.createTestingModule({
+        it('should provide AsaasService with useFactory', async () => {
+            module = await testing_1.Test.createTestingModule({
                 imports: [
                     asaas_module_1.AsaasModule.forRootAsync({
                         useFactory: () => (config),
@@ -41,6 +53,17 @@ describe('AsaasModule', () => {
             expect(asaasService.subscriptions).toBeDefined();
             expect(asaasService.payments).toBeDefined();
             expect(asaasService.installments).toBeDefined();
+        });
+        it('should provide AsaasService with useClass', async () => {
+            const asyncOptions = {
+                useClass: MockAsaasConfigOptionsFactory,
+            };
+            module = await testing_1.Test.createTestingModule({
+                imports: [asaas_module_1.AsaasModule.forRootAsync(asyncOptions)],
+            }).compile();
+            const asaasService = module.get(asaas_constants_1.ASAAS_TOKEN);
+            expect(asaasService).toBeDefined();
+            expect(asaasService).toBeInstanceOf(asaas_service_1.AsaasService);
         });
     });
 });

@@ -50,7 +50,7 @@ export class AsaasModule {
   private static createAsyncProviders(
     options: AsaasModuleAsyncOptions,
   ): Provider[] {
-    if (options.useExisting || options.useFactory) {
+    if (options.useFactory) {
       return [this.createAsyncOptionsProvider(options)];
     }
     const useClass = options.useClass as Type<AsaasConfigOptionsFactory>;
@@ -74,7 +74,7 @@ export class AsaasModule {
       };
     }
     const inject = [
-      (options.useClass || options.useExisting) as Type<AsaasConfigOptionsFactory>,
+      options.useClass as Type<AsaasConfigOptionsFactory>,
     ];
     return {
       provide: ASAAS_MODULE_OPTIONS,

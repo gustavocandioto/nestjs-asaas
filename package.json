@@ -1,6 +1,6 @@
 {
   "name": "@candioto/nestjs-asaas",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Unofficial Asaas Payment Gateway NestJS module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

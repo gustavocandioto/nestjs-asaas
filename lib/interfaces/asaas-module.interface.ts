@@ -3,6 +3,9 @@ import { ModuleMetadata, Type } from "@nestjs/common";
 export type AsaasModuleOptions = {
   apiKey: string;
   sandbox: boolean;
+  sandboxUrl?: string;
+  baseUrl?: string;
+  userAgent?: string;
 }
 
 export interface AsaasConfigOptionsFactory {
